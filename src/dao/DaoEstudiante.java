@@ -59,14 +59,16 @@ public class DaoEstudiante {
         modelo.addColumn("Apellidos");
         modelo.addColumn("Carrera");
         modelo.addColumn("Promedio");
+        modelo.addColumn("Beca");
 
         for (Estudiante estudiante : listado) {
-            Object[] fila = new Object[5];
+            Object[] fila = new Object[6];
             fila[0] = estudiante.getId();
             fila[1] = estudiante.getNombres();
             fila[2] = estudiante.getApellidos();
             fila[3] = estudiante.getCarrera();
             fila[4] = estudiante.getPromedio();
+            fila[5] = estudiante.otorgarBeca();
             modelo.addRow(fila);
         }
 

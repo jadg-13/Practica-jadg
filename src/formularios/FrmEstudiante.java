@@ -80,6 +80,11 @@ public class FrmEstudiante extends javax.swing.JFrame {
         BtnLimpiar.setText("Limpiar");
 
         BtnAgregar.setText("Agregar");
+        BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAgregarActionPerformed(evt);
+            }
+        });
 
         TblRegistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,6 +170,18 @@ public class FrmEstudiante extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
+        // TODO add your handling code here:
+        est = new Estudiante();
+        est.setId(Integer.parseInt(TfID.getText()));
+        est.setNombres(TfNombres.getText());
+        est.setApellidos(TfApellidos.getText());
+        est.setCarrera(CbCarrera.getSelectedItem().toString());
+        est.setPromedio(Double.parseDouble(TfPromedio.getText()));
+        estDao.crearEstudiante(est);
+        cargarTabla();
+    }//GEN-LAST:event_BtnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
